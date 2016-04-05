@@ -34,16 +34,19 @@ public class StoreQueue {
 	//counting starts from 1(not 0)
 	public Person returnNthPersonInRecord(int n){
 		try{
-			return records.get(n);
+			return records.get(records.size - n + 1);
 		} catch(NullPointerException e){
 			return null;
 		}
 	}
 	public void deleteNthPersonFromRecord(int n){
+		records.delete(records.get(records.size - n + 1));
 	}
+	
 	public Person returnPersonFromRecord(int id){
-
+		return records.find(id);
 	}
 	public void deletePersonFromRecord(int id){
+		records.delete(records.find(id));
 	}
 }

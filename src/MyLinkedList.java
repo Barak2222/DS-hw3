@@ -25,21 +25,23 @@ public class MyLinkedList {
 		return node.data;
 	}
 	
-	public Node find(Person p) { // {TODO} daniel's HW
+	public Person find(int id) {
+		Node node = head.next;
+		while(node != null && node.data.getId() != id){
+			node = node.next;
+		}
+		return node.data;
+		
 	}
 
 	public void delete(Person p) {
 		Node prev = head;
 		Node current = head.next;
 		while(current != null){
-			if( current.data == p){
+			if( current.data.getId() == p.getId()){
 				prev.next = current.next;
 			}
 		}
-	}
-	
-		public ListElement getLast(){
-		
 	}
 
 }

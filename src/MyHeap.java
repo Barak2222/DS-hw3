@@ -58,7 +58,7 @@ public class MyHeap {
 	}
 
 	public void insert(Person p) {
-		if(size + 1 == maxSize){
+		if(size + 1 >= maxSize){
 			resize();
 		}
 		size++;
@@ -66,7 +66,8 @@ public class MyHeap {
 	}
 	
 	private void resize(){
-		Person[] holder2 = new Person[maxSize * 2];
+		maxSize = maxSize*2;
+		Person[] holder2 = new Person[maxSize];
 		for (int i = 0; i < holder.length; i++) {
 			holder2[i] = holder[i];
 		}
