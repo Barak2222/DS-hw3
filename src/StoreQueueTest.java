@@ -1,9 +1,9 @@
 public class StoreQueueTest {
 	public static void main(String[] args) {
 		StoreQueue sq = new StoreQueue();
-		Person p = new Person(1234, 5);
+		Person p = new Person(1234, 4);
 		sq.enqueue(p);
-		p = new Person(12345, 6);
+		p = new Person(12345, 5);
 		sq.enqueue(p);
 		p = new Person(123456, 7);
 		sq.enqueue(p);
@@ -22,20 +22,16 @@ public class StoreQueueTest {
 	     System.out.println((sq.firstInQueue()).getId());
 	     sq.dequeue();
 	     System.out.println((sq.firstInQueue()).getId());
-	     sq.q.print();
-	     System.out.println(sq.returnNthPersonInRecord(1).getId());
-	     System.out.println(sq.returnPersonFromRecord(321).getAge());
+	     System.out.println(sq.returnNthPersonInRecord(3).getId());
+	     System.out.println(sq.returnPersonFromRecord(123).getAge());
 	     sq.deleteNthPersonFromRecord(3);
 	     System.out.println(sq.returnNthPersonInRecord(3).getId());
 	     sq.dequeue();
 	     System.out.println(sq.returnNthPersonInRecord(3).getId());
 	     System.out.println((sq.firstInQueue()).getId());
 	     sq.deleteNthPersonFromRecord(9);
-	     System.out.println(sq.returnPersonFromRecord(321));
+	     System.out.println(sq.returnPersonFromRecord(321).getAge());
 	     System.out.println(sq.returnNthPersonInRecord(9));
 	     System.out.println(sq.returnNthPersonInRecord(8).getId());
-
-
-
 	}
 }

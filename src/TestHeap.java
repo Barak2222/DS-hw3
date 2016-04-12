@@ -9,7 +9,6 @@ public class TestHeap {
 	
 	public static void test1(){
 		Person[] arr = {
-			null,
 			new Person(8978, 22),
 			new Person(3333, 40),
 			new Person(3333, 33),

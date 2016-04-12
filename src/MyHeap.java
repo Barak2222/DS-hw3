@@ -3,22 +3,35 @@ public class MyHeap {
 	protected int maxSize;
 	protected int size;
 
-	// we ignore the 0 position at all arrays
+	/***
+	 * 
+	 * @param p array of people
+	 * @param numPeople number of people
+	 */
+	// we ignore the 0 position at "holder"
 	public MyHeap(Person[] p, int numPeople) {
 		holder = new Person[numPeople + 1];
 		maxSize = numPeople +1;
 		size = numPeople;
-		for (int i = 1; i <= numPeople; i++) {
-			percDown(p[i], numPeople - i + 1);
+		for (int i = 0; i < numPeople; i++) {
+			percDown(p[i], numPeople - i);
 		}
 	}
 	
+	/***
+	 * Empty constructor
+	 */
 	public MyHeap(){
 		holder = new Person[2];
 		maxSize = 1;
 		size = 0;
 	}
 
+	/***
+	 * 
+	 * @param p person to add
+	 * @param i	position
+	 */
 	private void percDown(Person p, int i) {
 		if (2 * i > size) {
 			holder[i] = p;
@@ -40,6 +53,11 @@ public class MyHeap {
 		}
 	}
 
+	/***
+	 * 
+	 * @param p person to add
+	 * @param i position
+	 */
 	private void percUp(Person p, int i) {
 		if( i == 1){
 			holder[i] = p;
@@ -53,10 +71,18 @@ public class MyHeap {
 		percUp(p, i/2);
 	}
 
+	/***
+	 * 
+	 * @return The oldest person
+	 */
 	public Person FindMax() {
 		return holder[1];
 	}
-
+	
+	/***
+	 * 
+	 * @param p person to insert
+	 */
 	public void insert(Person p) {
 		if(size + 1 >= maxSize){
 			resize();
@@ -65,6 +91,9 @@ public class MyHeap {
 		percUp(p, size);
 	}
 	
+	/***
+	 * utility function that doubles the maxSize
+	 */
 	private void resize(){
 		maxSize = maxSize*2;
 		Person[] holder2 = new Person[maxSize];
@@ -74,7 +103,9 @@ public class MyHeap {
 		holder = holder2;
 	}
 	
-
+	/***
+	 * delete the oldest person from the heap
+	 */
 	public void DeleteMax() {
 		if(size <= 0){
 			throw new IllegalArgumentException("heap is empty, cannot delete");
@@ -83,6 +114,9 @@ public class MyHeap {
 		size--;
 	}
 
+	/***
+	 * prints the heap
+	 */
 	public void print(){
 		System.out.print("arr: [");
 		for(int i = 0; i <= size; i++){
