@@ -1,4 +1,4 @@
-public class MyHeap2 {
+public class ArrayHeap {
 	protected Person[] holder;
 	protected int maxSize;
 	protected int size;
@@ -9,7 +9,7 @@ public class MyHeap2 {
 	 * @param numPeople number of people
 	 */
 	// we ignore the 0 position at "holder"
-	public MyHeap2(Person[] p, int numPeople) {
+	public ArrayHeap(Person[] p, int numPeople) {
 		holder = new Person[numPeople + 1];
 		maxSize = numPeople +1;
 		size = numPeople;
@@ -21,7 +21,7 @@ public class MyHeap2 {
 	/***
 	 * Empty constructor
 	 */
-	public MyHeap2(){
+	public ArrayHeap(){
 		holder = new Person[2];
 		maxSize = 1;
 		size = 0;

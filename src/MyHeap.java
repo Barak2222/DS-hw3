@@ -13,7 +13,7 @@ public class MyHeap {
 	 */
 
 	public MyHeap(Person[] p, int numPeople) {
-		MyHeap2 temp = new MyHeap2(p, numPeople);
+		ArrayHeap temp = new ArrayHeap(p, numPeople);
 		Person[] h = temp.holder;
 		size = numPeople;
 		TreeNode[] arr = new TreeNode[h.length];
